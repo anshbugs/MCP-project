@@ -18,14 +18,18 @@ st.set_page_config(page_title="Core UI | AI Equity Desk", page_icon="💬", layo
 st.markdown("""
 <style>
     .stApp { background-color: #0A0E17; }
+    [data-testid="stSidebar"] { background-color: #0d121c !important; border-right: 1px solid rgba(255,255,255,0.05); }
     h1, h2, h3 { color: #FFFFFF !important; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.5px; }
     div[data-testid="stMetricValue"] { font-size: 2.2rem !important; font-weight: 700 !important; color: #00E676 !important; }
+    
+    /* Glassmorphism Inputs & Buttons */
+    div[data-baseweb="input"] > div { background-color: #151a22 !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; border-radius: 8px; color: white !important; }
     .stButton>button { width: 100%; border-radius: 8px; background: linear-gradient(90deg, #00E676 0%, #00B0FF 100%); color: white; border: none; transition: all 0.3s ease; font-weight: 600; padding: 0.75rem !important; }
     .stButton>button:hover { transform: translateY(-2px); box-shadow: 0 8px 15px rgba(0, 230, 118, 0.3); }
-    div.stInfo, div.stSuccess, div.stWarning { background-color: rgba(21, 26, 34, 0.6) !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; border-left: 4px solid #00E676 !important; backdrop-filter: blur(10px); color: #E0E6ED; border-radius: 6px; }
     
-    /* Chat Bubble Tweaks */
-    .stChatMessage { padding: 1.5rem; border-radius: 12px; margin-bottom: 15px; }
+    /* Alerts & Chat Bubbles */
+    div.stInfo, div.stSuccess, div.stWarning { background-color: rgba(21, 26, 34, 0.6) !important; border: 1px solid rgba(255, 255, 255, 0.05) !important; border-left: 4px solid #00E676 !important; backdrop-filter: blur(10px); color: #E0E6ED; border-radius: 6px; }
+    .stChatMessage { background-color: #121824 !important; border: 1px solid rgba(255, 255, 255, 0.05) !important; padding: 1.5rem; border-radius: 12px; margin-bottom: 15px; }
 </style>
 """, unsafe_allow_html=True)
 
