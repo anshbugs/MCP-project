@@ -1,0 +1,15 @@
+langchain
+langgraph
+langchain-openai
+langchain-community
+yfinance
+duckduckgo-search
+fastapi
+streamlit
+python-dotenv
+pandas
+requests
+uvicorn
+plotly
+gspread
+google-auth
