@@ -1,0 +1,29 @@
+# Environments
+venv/
+env/
+.env
+
+# Secrets
+google_credentials.json
+
+# Data and Logs
+equity_desk.db
+data_fetched_log.jsonl
+*.db
+*.sqlite3
+*.log
+*.jsonl
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Git
+.git/
+.gitignore
+
+# OS Files
+.DS_Store
+Thumbs.db
