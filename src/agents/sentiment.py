@@ -15,7 +15,7 @@ def analyze_sentiment(state: dict) -> dict:
     
     llm = get_llm().with_structured_output(SentimentOutput)
     prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are an elite Sentiment Analyst. Review recent news and headlines. Assign a sentiment score from 0.0 to 10.0 representing the market's bullishness or bearishness."),
+        ("system", "You are an elite Sentiment Analyst. Review recent news and headlines. Assign a sentiment score from 0.0 to 10.0 representing the market's bullishness or bearishness. CRITICAL: Your summary MUST be strictly 2-3 sentences max. Do NOT write long paragraphs."),
         ("user", "Recent news results for {ticker}:\n{news}")
     ])
     

@@ -20,7 +20,7 @@ def analyze_technicals(state: dict) -> dict:
     llm = get_llm().with_structured_output(TechnicalOutput)
     
     asset_noun = "NAV" if asset_type == "mutual_fund" else "price"
-    sys_prompt = f"You are an expert Technical Analyst. Evaluate the {asset_noun} trends and moving averages. Calculate a technical score out of 10.0."
+    sys_prompt = f"You are an expert Technical Analyst. Evaluate the {asset_noun} trends and moving averages. Calculate a technical score out of 10.0. CRITICAL: Your summary MUST be strictly 2-3 sentences max. Do NOT write long paragraphs."
     
     prompt = ChatPromptTemplate.from_messages([
         ("system", sys_prompt),

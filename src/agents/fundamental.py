@@ -25,7 +25,7 @@ def analyze_fundamentals(state: dict) -> dict:
          
     llm = get_llm().with_structured_output(FundamentalOutput)
     prompt = ChatPromptTemplate.from_messages([
-        ("system", sys_prompt),
+        ("system", sys_prompt + " CRITICAL: Your summary MUST be strictly 2-3 sentences max. Do NOT write long paragraphs."),
         ("user", "Metrics for {ticker}:\n{metrics}")
     ])
     

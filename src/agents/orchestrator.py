@@ -59,7 +59,7 @@ def final_generator_node(state: AnalystState) -> dict:
     """Generates the PM-level qualitative report summarizing the decision."""
     llm = get_llm().with_structured_output(FinalDecisionOutput)
     prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are the Master Orchestrator (PM) of an AI equity research desk. Provide a PM-level final comprehensive decision snippet. Ensure it reads like a crisp decision intelligence report. Do not change the calculated recommendation or final score. Just write the 'why'."),
+        ("system", "You are the Master Orchestrator (PM) of an AI equity research desk. Provide a PM-level final comprehensive decision snippet. Ensure it reads like a crisp decision intelligence report. Do not change the calculated recommendation or final score. CRITICAL: Your final summary MUST NOT exceed 5 lines. Keep it extremely concise and direct. Do NOT write long paragraphs."),
         ("user", "Ticker: {ticker}\nFundamental: Score {f_score}. {f_summary}\nTechnical: Score {t_score}. {t_summary}\nSentiment: Score {s_score}. {s_summary}\nCalculated Final Score: {final_score}/10\nCalculated Recommendation: {rec}")
     ])
     
