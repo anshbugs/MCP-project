@@ -31,15 +31,19 @@ st.sidebar.markdown("---")
 st.sidebar.info("System AI Status: Online\nData: Live via Yahoo/DDG")
 
 def fetch_analysis(endpoint: str, payload: dict):
+    from src.api.main import run_analysis, portfolio_analysis, compare_stocks
+    from src.api.main import PortfolioRequest, CompareStocksRequest
     try:
-        response = requests.post(f"{API_URL}/{endpoint}", json=payload)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.ConnectionError:
-        st.error("❌ Cannot connect to Backend API. Is FastAPI running on port 8000?")
-        return None
+        if endpoint == "analyze-stock":
+            return run_analysis(payload["ticker"], "stock")
+        elif endpoint == "analyze-mutual-fund":
+            return run_analysis(payload["ticker"], "mutual_fund")
+        elif endpoint == "portfolio-analysis":
+            return portfolio_analysis(PortfolioRequest(stocks=payload["stocks"]))
+        elif endpoint == "compare-stocks":
+            return compare_stocks(CompareStocksRequest(stock1=payload["stock1"], stock2=payload["stock2"]))
     except Exception as e:
-        st.error(f"❌ Error fetching data: {e}")
+        st.error(f"❌ Error analyzing data: {e}")
         return None
 
 def plot_premium_chart(ticker: str):
@@ -127,7 +131,8 @@ if page == "💬 AI Chat Assistant":
         with st.chat_message("assistant"):
             with st.spinner("Extracting parameters and querying LangGraph..."):
                 try:
-                    intent = requests.post(f"{API_URL}/extract-ticker", json={"query": prompt}).json()
+                    from src.api.main import extract_ticker, ChatIntentRequest
+                    intent = extract_ticker(ChatIntentRequest(query=prompt))
                     st.markdown(intent["reply"])
                     
                     if intent.get("ticker"):
