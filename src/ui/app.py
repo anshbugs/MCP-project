@@ -1,3 +1,8 @@
+import sys
+import os
+# Ensure Streamlit can resolve the 'src' module in the cloud
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+
 import streamlit as st
 import requests
 import pandas as pd
