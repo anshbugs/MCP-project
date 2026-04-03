@@ -1,6 +1,7 @@
 # AI Equity Research Desk
 
-A multi-agent decision intelligence system built for PMs and traders. This leverages LangGraph for complex agent orchestration, FastAPI for production routing, and Streamlit for stunning frontends.
+A multi-agent decision intelligence system built for PMs and traders. This leverages LangGraph for complex agent orchestration, FastAPI for production routing, and Streamlit for stunning frontends.Helps compare stocks, answer investment questions, anaylses the risk and tells whether to invest or not.
+https://mcp-projectgit-9xlhclkbjeeykskue9i9x6.streamlit.app/
 
 ## 🚀 Setup & Execution
 
